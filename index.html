@@ -993,14 +993,443 @@
       </section>
 
       <!-- 
-        ===================
-        DATA TABLE
-        ===================
-        Will be built in Step 7
-        Shows: Recent transactions, users, or orders
+        =====================================================
+        DATA TABLE SECTION - Recent Transactions
+        =====================================================
+        
+        COMPONENTS:
+        - Card wrapper for clean presentation
+        - Search and filter controls
+        - Responsive Bootstrap table
+        - Status badges
+        - Action buttons
+        - Pagination controls
+        
+        RESPONSIVE STRATEGY:
+        - Desktop: Full table with all columns
+        - Tablet: Horizontal scroll
+        - Mobile: Can be converted to cards (with JS)
+        ===================================================== 
       -->
       <section class="mb-4">
-        <!-- Data table will go here -->
+        <div class="card table-card border-0">
+          
+          <!-- Table Header with Controls -->
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <h5 class="card-title mb-0">Recent Transactions</h5>
+                <p class="text-muted small mb-0">Overview of latest customer orders</p>
+              </div>
+              <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                <!-- 
+                  SEARCH AND FILTER CONTROLS
+                  ==========================
+                  Would be functional with JavaScript
+                -->
+                <div class="d-flex flex-wrap justify-content-md-end gap-2">
+                  <!-- Search Input -->
+                  <div class="input-group" style="max-width: 250px;">
+                    <span class="input-group-text bg-white">
+                      <i class="bi bi-search text-muted"></i>
+                    </span>
+                    <input type="search" 
+                           class="form-control" 
+                           placeholder="Search transactions..."
+                           aria-label="Search">
+                  </div>
+                  
+                  <!-- Filter Dropdown -->
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" 
+                            type="button" 
+                            id="filterDropdown" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                      <i class="bi bi-funnel me-1"></i> Filter
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filterDropdown">
+                      <li><a class="dropdown-item" href="#">All Transactions</a></li>
+                      <li><a class="dropdown-item" href="#">Completed</a></li>
+                      <li><a class="dropdown-item" href="#">Pending</a></li>
+                      <li><a class="dropdown-item" href="#">Failed</a></li>
+                    </ul>
+                  </div>
+                  
+                  <!-- Export Button -->
+                  <button class="btn btn-primary" type="button">
+                    <i class="bi bi-download me-1"></i> Export
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 
+            TABLE CONTAINER
+            ===============
+            table-responsive: Enables horizontal scroll on small screens
+          -->
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <!-- 
+                BOOTSTRAP TABLE
+                ===============
+                - table: Base table class
+                - table-hover: Row highlight on hover
+                - align-middle: Vertically center all cells
+                - mb-0: Remove bottom margin
+              -->
+              <table class="table table-hover align-middle mb-0">
+                <!-- 
+                  TABLE HEAD
+                  ==========
+                  Contains column headers
+                -->
+                <thead class="table-light">
+                  <tr>
+                    <th scope="col" class="ps-4">
+                      <!-- 
+                        SELECT ALL CHECKBOX
+                        Would be functional with JavaScript
+                      -->
+                      <div class="form-check">
+                        <input class="form-check-input" 
+                               type="checkbox" 
+                               id="selectAll"
+                               aria-label="Select all transactions">
+                      </div>
+                    </th>
+                    <th scope="col">Transaction ID</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-end pe-4">Actions</th>
+                  </tr>
+                </thead>
+                
+                <!-- 
+                  TABLE BODY
+                  ==========
+                  Contains all data rows
+                -->
+                <tbody>
+                  
+                  <!-- Transaction Row #1 - Completed -->
+                  <tr>
+                    <td class="ps-4">
+                      <div class="form-check">
+                        <input class="form-check-input" 
+                               type="checkbox" 
+                               aria-label="Select transaction">
+                      </div>
+                    </td>
+                    <td>
+                      <span class="fw-semibold text-primary">#TXN-3847</span>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="avatar-sm me-2">
+                          <div class="avatar-placeholder bg-primary text-white">
+                            SJ
+                          </div>
+                        </div>
+                        <div>
+                          <div class="fw-medium">Sarah Johnson</div>
+                          <small class="text-muted">sarah.j@example.com</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>Dec 24, 2025</div>
+                      <small class="text-muted">10:45 AM</small>
+                    </td>
+                    <td>
+                      <span class="fw-semibold">$2,499.00</span>
+                    </td>
+                    <td>
+                      <span class="badge bg-success-light text-success">
+                        <i class="bi bi-check-circle me-1"></i>Completed
+                      </span>
+                    </td>
+                    <td class="text-end pe-4">
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" 
+                                class="btn btn-outline-secondary" 
+                                title="View details">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button type="button" 
+                                class="btn btn-outline-secondary" 
+                                title="Download receipt">
+                          <i class="bi bi-download"></i>
+                        </button>
+                        <button type="button" 
+                                class="btn btn-outline-secondary" 
+                                title="More options">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  
+                  <!-- Transaction Row #2 - Pending -->
+                  <tr>
+                    <td class="ps-4">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>
+                      <span class="fw-semibold text-primary">#TXN-3846</span>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="avatar-sm me-2">
+                          <div class="avatar-placeholder bg-info text-white">
+                            MC
+                          </div>
+                        </div>
+                        <div>
+                          <div class="fw-medium">Michael Chen</div>
+                          <small class="text-muted">m.chen@example.com</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>Dec 24, 2025</div>
+                      <small class="text-muted">09:22 AM</small>
+                    </td>
+                    <td>
+                      <span class="fw-semibold">$1,249.00</span>
+                    </td>
+                    <td>
+                      <span class="badge bg-warning-light text-warning">
+                        <i class="bi bi-clock me-1"></i>Pending
+                      </span>
+                    </td>
+                    <td class="text-end pe-4">
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-download"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  
+                  <!-- Transaction Row #3 - Completed -->
+                  <tr>
+                    <td class="ps-4">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>
+                      <span class="fw-semibold text-primary">#TXN-3845</span>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="avatar-sm me-2">
+                          <div class="avatar-placeholder bg-success text-white">
+                            ER
+                          </div>
+                        </div>
+                        <div>
+                          <div class="fw-medium">Emma Rodriguez</div>
+                          <small class="text-muted">emma.r@example.com</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>Dec 23, 2025</div>
+                      <small class="text-muted">04:18 PM</small>
+                    </td>
+                    <td>
+                      <span class="fw-semibold">$3,750.00</span>
+                    </td>
+                    <td>
+                      <span class="badge bg-success-light text-success">
+                        <i class="bi bi-check-circle me-1"></i>Completed
+                      </span>
+                    </td>
+                    <td class="text-end pe-4">
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-download"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  
+                  <!-- Transaction Row #4 - Failed -->
+                  <tr>
+                    <td class="ps-4">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>
+                      <span class="fw-semibold text-primary">#TXN-3844</span>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="avatar-sm me-2">
+                          <div class="avatar-placeholder bg-danger text-white">
+                            JW
+                          </div>
+                        </div>
+                        <div>
+                          <div class="fw-medium">James Wilson</div>
+                          <small class="text-muted">j.wilson@example.com</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>Dec 23, 2025</div>
+                      <small class="text-muted">02:45 PM</small>
+                    </td>
+                    <td>
+                      <span class="fw-semibold">$899.00</span>
+                    </td>
+                    <td>
+                      <span class="badge bg-danger-light text-danger">
+                        <i class="bi bi-x-circle me-1"></i>Failed
+                      </span>
+                    </td>
+                    <td class="text-end pe-4">
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-download"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  
+                  <!-- Transaction Row #5 - Completed -->
+                  <tr>
+                    <td class="ps-4">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>
+                      <span class="fw-semibold text-primary">#TXN-3843</span>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="avatar-sm me-2">
+                          <div class="avatar-placeholder bg-warning text-white">
+                            LP
+                          </div>
+                        </div>
+                        <div>
+                          <div class="fw-medium">Lisa Park</div>
+                          <small class="text-muted">lisa.p@example.com</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>Dec 23, 2025</div>
+                      <small class="text-muted">11:30 AM</small>
+                    </td>
+                    <td>
+                      <span class="fw-semibold">$1,650.00</span>
+                    </td>
+                    <td>
+                      <span class="badge bg-success-light text-success">
+                        <i class="bi bi-check-circle me-1"></i>Completed
+                      </span>
+                    </td>
+                    <td class="text-end pe-4">
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-download"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- 
+            TABLE FOOTER - Pagination
+            =========================
+          -->
+          <div class="card-footer bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <p class="text-muted small mb-0">
+                  Showing <strong>1-5</strong> of <strong>48</strong> transactions
+                </p>
+              </div>
+              <div class="col-md-6">
+                <!-- 
+                  PAGINATION COMPONENT
+                  ====================
+                  Bootstrap's pagination for navigating pages
+                -->
+                <nav aria-label="Table pagination">
+                  <ul class="pagination pagination-sm justify-content-md-end mb-0 mt-3 mt-md-0">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                        <i class="bi bi-chevron-left"></i>
+                      </a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">...</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">10</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        <i class="bi bi-chevron-right"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          
+        </div>
       </section>
 
     </main>
