@@ -205,8 +205,209 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ====================================
+   SIDEBAR NAVIGATION STYLES
+   ==================================== */
+
+/* 
+   DESKTOP SIDEBAR (Fixed)
+   WHY FIXED?
+   - Always visible while scrolling
+   - Easy access to navigation
+   - Industry standard (Notion, Linear, GitHub)
+*/
+.sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1020;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+   SCROLLBAR STYLING (Webkit browsers)
+   Makes scrollbar subtle and modern
+*/
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Sidebar Navigation Container */
+.sidebar-nav {
+  flex: 1;
+  padding: var(--spacing-lg) 0;
+}
+
+/* 
+   NAVIGATION LINKS
+   ================
+   Each link is interactive with hover/active states
+*/
+.sidebar-nav .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: var(--sidebar-text);
+  text-decoration: none;
+  transition: var(--transition-base);
+  border-left: 3px solid transparent;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+/* 
+   HOVER STATE
+   WHY IMPORTANT?
+   - Provides visual feedback
+   - Indicates clickability
+   - Improves UX
+*/
+.sidebar-nav .nav-link:hover {
+  background-color: var(--sidebar-hover);
+  color: #FFFFFF;
+}
+
+/* 
+   ACTIVE STATE (Current Page)
+   ===========================
+   - Border + background highlight
+   - Makes it clear where user is
+*/
+.sidebar-nav .nav-link.active {
+  background-color: rgba(79, 70, 229, 0.1);
+  color: var(--primary-color);
+  border-left-color: var(--primary-color);
+}
+
+/* Icon spacing within nav links */
+.sidebar-nav .nav-link i {
+  font-size: 1.125rem;
+  flex-shrink: 0; /* Prevents icon from shrinking */
+}
+
+/* Badge positioning within nav links */
+.sidebar-nav .nav-link .badge {
+  font-size: 0.6875rem;
+  padding: 0.25em 0.5em;
+  font-weight: 600;
+}
+
+/* 
+   SECTION DIVIDERS
+   ================
+   Groups related navigation items
+*/
+.nav-divider {
+  margin: 1rem 1.5rem 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+.nav-divider-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* ====================================
+   SIDEBAR FOOTER (Upgrade Card)
+   ==================================== */
+
+.sidebar-footer {
+  padding: var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 
+   UPGRADE CARD
+   ============
+   Encourages users to upgrade to premium
+   Common pattern in SaaS dashboards
+*/
+.upgrade-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.upgrade-card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.upgrade-card-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+}
+
+.upgrade-card-text {
+  font-size: 0.8125rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.upgrade-card .btn {
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ====================================
+   MOBILE SIDEBAR (Offcanvas)
+   ==================================== */
+
+/* 
+   Bootstrap's offcanvas handles most mobile styling
+   We just need to match our color scheme
+*/
+.offcanvas {
+  background-color: var(--sidebar-bg);
+}
+
+.offcanvas-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+  padding: 1.25rem 1.5rem;
+}
+
+.offcanvas-title {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* White close button for dark sidebar */
+.offcanvas .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* ====================================
    COMING UP NEXT:
-   - Sidebar styles
    - Card components
    - Table styles
+   - Chart containers
    ==================================== */

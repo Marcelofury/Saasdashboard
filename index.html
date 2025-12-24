@@ -354,13 +354,266 @@
   <div class="dashboard-wrapper">
     
     <!-- 
-      ===================
+      =====================================================
       SIDEBAR NAVIGATION
-      ===================
-      Will be built in Step 4
+      =====================================================
+      
+      TWO VERSIONS:
+      1. MOBILE: Offcanvas (slide-in from left)
+      2. DESKTOP: Fixed sidebar (always visible)
+      
+      Bootstrap's offcanvas component handles mobile automatically
+      ===================================================== 
     -->
     <aside>
-      <!-- Sidebar navigation will go here -->
+      <!-- 
+        MOBILE SIDEBAR (Offcanvas)
+        ==========================
+        - offcanvas-start: Slides from left
+        - d-lg-none: Hidden on large screens (≥992px)
+      -->
+      <div class="offcanvas offcanvas-start d-lg-none" 
+           tabindex="-1" 
+           id="sidebarMenu" 
+           aria-labelledby="sidebarMenuLabel">
+        
+        <!-- Offcanvas Header (Mobile only) -->
+        <div class="offcanvas-header border-bottom">
+          <h5 class="offcanvas-title" id="sidebarMenuLabel">
+            <i class="bi bi-box-seam-fill text-primary me-2"></i>
+            Navigation
+          </h5>
+          <button type="button" 
+                  class="btn-close" 
+                  data-bs-dismiss="offcanvas" 
+                  aria-label="Close"></button>
+        </div>
+        
+        <!-- Offcanvas Body (contains nav links) -->
+        <div class="offcanvas-body p-0">
+          <!-- NAV LINKS (shared between mobile and desktop) -->
+          <nav class="sidebar-nav">
+            <ul class="nav flex-column">
+              
+              <!-- 
+                DASHBOARD LINK (Active)
+                ======================
+                - nav-item: Bootstrap nav item wrapper
+                - nav-link: Bootstrap link styling
+                - active: Highlights current page
+              -->
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">
+                  <i class="bi bi-speedometer2 me-3"></i>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+              
+              <!-- ANALYTICS LINK -->
+              <li class="nav-item">
+                <a class="nav-link" href="pages/analytics.html">
+                  <i class="bi bi-graph-up me-3"></i>
+                  <span>Analytics</span>
+                </a>
+              </li>
+              
+              <!-- PROJECTS LINK -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-folder me-3"></i>
+                  <span>Projects</span>
+                  <!-- Badge for item count -->
+                  <span class="badge bg-primary rounded-pill ms-auto">12</span>
+                </a>
+              </li>
+              
+              <!-- TEAM LINK -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-people me-3"></i>
+                  <span>Team</span>
+                </a>
+              </li>
+              
+              <!-- CUSTOMERS LINK -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-person-badge me-3"></i>
+                  <span>Customers</span>
+                </a>
+              </li>
+              
+              <!-- SECTION DIVIDER -->
+              <li class="nav-divider">
+                <span class="nav-divider-text">Management</span>
+              </li>
+              
+              <!-- SETTINGS LINK -->
+              <li class="nav-item">
+                <a class="nav-link" href="pages/settings.html">
+                  <i class="bi bi-gear me-3"></i>
+                  <span>Settings</span>
+                </a>
+              </li>
+              
+              <!-- BILLING LINK -->
+              <li class="nav-item">
+                <a class="nav-link" href="pages/billing.html">
+                  <i class="bi bi-credit-card me-3"></i>
+                  <span>Billing</span>
+                  <!-- New notification badge -->
+                  <span class="badge bg-success rounded-pill ms-auto">New</span>
+                </a>
+              </li>
+              
+              <!-- DOCUMENTATION LINK -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-book me-3"></i>
+                  <span>Documentation</span>
+                  <!-- External link icon -->
+                  <i class="bi bi-box-arrow-up-right ms-auto small"></i>
+                </a>
+              </li>
+              
+              <!-- SECTION DIVIDER -->
+              <li class="nav-divider">
+                <span class="nav-divider-text">Support</span>
+              </li>
+              
+              <!-- HELP CENTER LINK -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-question-circle me-3"></i>
+                  <span>Help Center</span>
+                </a>
+              </li>
+              
+              <!-- SUPPORT LINK -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-chat-left-dots me-3"></i>
+                  <span>Support</span>
+                </a>
+              </li>
+              
+            </ul>
+          </nav>
+          
+          <!-- 
+            SIDEBAR FOOTER (User Upgrade Card)
+            ==================================
+            Shown at bottom of sidebar
+          -->
+          <div class="sidebar-footer">
+            <div class="upgrade-card">
+              <div class="upgrade-card-icon">
+                <i class="bi bi-stars text-warning"></i>
+              </div>
+              <h6 class="upgrade-card-title">Upgrade to Pro</h6>
+              <p class="upgrade-card-text">Get access to premium features and priority support.</p>
+              <button class="btn btn-primary btn-sm w-100">Upgrade Now</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- 
+        DESKTOP SIDEBAR (Fixed)
+        =======================
+        - d-none d-lg-block: Hidden on mobile, visible on large screens
+        - position-fixed: Stays in place when scrolling
+      -->
+      <div class="sidebar d-none d-lg-block">
+        <!-- Same navigation content as mobile -->
+        <nav class="sidebar-nav">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">
+                <i class="bi bi-speedometer2 me-3"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pages/analytics.html">
+                <i class="bi bi-graph-up me-3"></i>
+                <span>Analytics</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="bi bi-folder me-3"></i>
+                <span>Projects</span>
+                <span class="badge bg-primary rounded-pill ms-auto">12</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="bi bi-people me-3"></i>
+                <span>Team</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="bi bi-person-badge me-3"></i>
+                <span>Customers</span>
+              </a>
+            </li>
+            <li class="nav-divider">
+              <span class="nav-divider-text">Management</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pages/settings.html">
+                <i class="bi bi-gear me-3"></i>
+                <span>Settings</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pages/billing.html">
+                <i class="bi bi-credit-card me-3"></i>
+                <span>Billing</span>
+                <span class="badge bg-success rounded-pill ms-auto">New</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="bi bi-book me-3"></i>
+                <span>Documentation</span>
+                <i class="bi bi-box-arrow-up-right ms-auto small"></i>
+              </a>
+            </li>
+            <li class="nav-divider">
+              <span class="nav-divider-text">Support</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="bi bi-question-circle me-3"></i>
+                <span>Help Center</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="bi bi-chat-left-dots me-3"></i>
+                <span>Support</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        
+        <!-- Sidebar Footer (Upgrade Card) -->
+        <div class="sidebar-footer">
+          <div class="upgrade-card">
+            <div class="upgrade-card-icon">
+              <i class="bi bi-stars text-warning"></i>
+            </div>
+            <h6 class="upgrade-card-title">Upgrade to Pro</h6>
+            <p class="upgrade-card-text">Get access to premium features and priority support.</p>
+            <button class="btn btn-primary btn-sm w-100">Upgrade Now</button>
+          </div>
+        </div>
+      </div>
+      
     </aside>
 
     <!-- 
