@@ -154,8 +154,37 @@
             </div>
           </form>
         </div>
-
         <!-- 
+          Explanation for the search bar code snippet:
+        why are they so many tags and classes for a simple search bar?
+        answer explaining each class and tag used in the search bar code snippet:
+        - <div class="d-none d-lg-flex flex-grow-1 mx-4" style="max-width: 500px;">: This div acts as a container for the search bar.
+          - d-none d-lg-flex: This class combination hides the search bar on small screens (d-none) and displays it as a flex container on large screens and above (d-lg-flex).
+          - flex-grow-1: This class allows the div to grow and take up available horizontal space within its parent container.
+          - mx-4: This class adds horizontal margin (left and right) of 1.5rem (24px) to create spacing around the search bar.
+          - style="max-width: 500px;": This inline style limits the maximum width of the search bar container to 500 pixels, preventing it from becoming too wide on larger screens.
+
+        - <form class="w-100" role="search">: This form element contains the search input field.
+          - w-100: This class makes the form take up 100% of the width of its parent container.
+          - role="search": This attribute indicates that the form is used for search functionality, improving accessibility.    
+        - <div class="input-group">: This div groups the search icon and input field together.
+        - <span class="input-group-text bg-white border-end-0">: This span contains the search icon.
+          - input-group-text: This class styles the span as part of the input group, giving it appropriate padding and background.
+          - bg-white: This class sets the background color of the span to white.
+            - border-end-0: This class removes the right border of the span to create a seamless look with the input field.
+        - <i class="bi bi-search text-muted"></i>: This is the search icon from Bootstrap Icons.
+          - bi bi-search: These classes specify the search icon from the Bootstrap Icons library.   
+            - text-muted: This class gives the icon a muted (lighter) color for a subtle appearance.
+        - <input class="form-control border-start-0 ps-0" type="search" placeholder="Search..." aria-label="Search">: This is the actual search input field.
+          - form-control: This class styles the input field with Bootstrap's default form styles.   
+            - border-start-0: This class removes the left border of the input field to create a seamless look with the search icon.
+            - ps-0: This class removes the left padding of the input field, aligning the text closely with the icon.
+            - type="search": This attribute specifies that the input field is for search purposes.
+            - placeholder="Search...": This attribute provides placeholder text that appears inside the input field when it's empty.
+            - aria-label="Search": This attribute improves accessibility by providing a label for screen readers.
+        -->
+            
+        <!--
           RIGHT SIDE ACTIONS
           ==================
           - ms-auto: Pushes to the right side
