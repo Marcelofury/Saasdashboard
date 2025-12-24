@@ -636,14 +636,142 @@
       </div>
 
       <!-- 
-        ===================
-        KPI CARDS SECTION
-        ===================
-        Will be built in Step 5
-        Shows: Total Revenue, Active Users, Growth Rate, etc.
+        =====================================================
+        KPI CARDS SECTION - Key Performance Indicators
+        =====================================================
+        
+        WHAT ARE KPIs?
+        - Key Performance Indicators
+        - Most important business metrics at a glance
+        - Top of dashboard (F-pattern reading)
+        
+        BOOTSTRAP GRID SYSTEM:
+        - row: Creates horizontal container
+        - col-12: Full width on mobile (100%)
+        - col-sm-6: Half width on small screens (50%)
+        - col-lg-3: Quarter width on large screens (25%)
+        - g-4: Gap of 1.5rem between columns
+        
+        RESULT: 1 column mobile → 2 columns tablet → 4 columns desktop
+        ===================================================== 
       -->
       <section class="mb-4">
-        <!-- KPI cards will go here -->
+        <div class="row g-4">
+          
+          <!-- 
+            KPI CARD #1: TOTAL REVENUE
+            ==========================
+          -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card kpi-card border-0 h-100">
+              <div class="card-body">
+                <!-- 
+                  CARD STRUCTURE:
+                  1. Icon with colored background
+                  2. Metric label
+                  3. Large number (the KPI value)
+                  4. Trend indicator (% change)
+                -->
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <!-- Icon Container -->
+                  <div class="kpi-icon-wrapper bg-primary-light">
+                    <i class="bi bi-currency-dollar text-primary"></i>
+                  </div>
+                  <!-- Trend Badge (Up/Down indicator) -->
+                  <span class="badge bg-success-light text-success">
+                    <i class="bi bi-arrow-up"></i> 12.5%
+                  </span>
+                </div>
+                
+                <!-- Metric Label -->
+                <h6 class="text-muted text-uppercase small fw-semibold mb-1">Total Revenue</h6>
+                
+                <!-- Main Metric Value -->
+                <h2 class="mb-0 fw-bold">$45,385</h2>
+                
+                <!-- Additional Context -->
+                <p class="text-muted small mb-0 mt-2">
+                  <span class="text-success fw-semibold">+$4,235</span> vs last month
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 
+            KPI CARD #2: ACTIVE USERS
+            =========================
+          -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card kpi-card border-0 h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <div class="kpi-icon-wrapper bg-info-light">
+                    <i class="bi bi-people text-info"></i>
+                  </div>
+                  <span class="badge bg-success-light text-success">
+                    <i class="bi bi-arrow-up"></i> 8.2%
+                  </span>
+                </div>
+                <h6 class="text-muted text-uppercase small fw-semibold mb-1">Active Users</h6>
+                <h2 class="mb-0 fw-bold">1,842</h2>
+                <p class="text-muted small mb-0 mt-2">
+                  <span class="text-success fw-semibold">+138</span> new this month
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 
+            KPI CARD #3: GROWTH RATE
+            ========================
+          -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card kpi-card border-0 h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <div class="kpi-icon-wrapper bg-success-light">
+                    <i class="bi bi-graph-up-arrow text-success"></i>
+                  </div>
+                  <span class="badge bg-success-light text-success">
+                    <i class="bi bi-arrow-up"></i> 24.3%
+                  </span>
+                </div>
+                <h6 class="text-muted text-uppercase small fw-semibold mb-1">Growth Rate</h6>
+                <h2 class="mb-0 fw-bold">32.5%</h2>
+                <p class="text-muted small mb-0 mt-2">
+                  <span class="text-success fw-semibold">Above target</span> by 7.5%
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 
+            KPI CARD #4: CONVERSION RATE
+            ============================
+            Shows negative trend (down arrow)
+          -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card kpi-card border-0 h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <div class="kpi-icon-wrapper bg-warning-light">
+                    <i class="bi bi-percent text-warning"></i>
+                  </div>
+                  <!-- Negative trend example -->
+                  <span class="badge bg-danger-light text-danger">
+                    <i class="bi bi-arrow-down"></i> 3.1%
+                  </span>
+                </div>
+                <h6 class="text-muted text-uppercase small fw-semibold mb-1">Conversion Rate</h6>
+                <h2 class="mb-0 fw-bold">2.84%</h2>
+                <p class="text-muted small mb-0 mt-2">
+                  <span class="text-danger fw-semibold">-0.09%</span> vs last month
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
       </section>
 
       <!-- 
