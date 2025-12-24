@@ -183,7 +183,7 @@
             - placeholder="Search...": This attribute provides placeholder text that appears inside the input field when it's empty.
             - aria-label="Search": This attribute improves accessibility by providing a label for screen readers.
         -->
-            
+
         <!--
           RIGHT SIDE ACTIONS
           ==================
@@ -215,6 +215,29 @@
             </span>
           </button>
 
+          <!-- explain the above notification bell code snippet
+          - <button class="btn btn-link text-dark position-relative p-2" type="button" title="Notifications">: This button element represents the notification bell.
+            - btn btn-link: These classes style the button to look like a link, removing default button styles.
+            - text-dark: This class sets the text color to dark for better visibility.
+            - position-relative: This class allows for absolute positioning of child elements (like the badge) relative to this button.
+            - p-2: This class adds padding of 0.5rem (8px) around the button content.
+            - type="button": This attribute specifies that the element is a button.
+            - title="Notifications": This attribute provides a tooltip text that appears when hovering over the button.
+            - <i class="bi bi-bell fs-5"></i>: This is the bell icon from Bootstrap Icons.
+              - bi bi-bell: These classes specify the bell icon from the Bootstrap Icons library.
+              - fs-5: This class sets the font size to 1.25rem (20px) for better visibility.
+            - <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">: This span represents the notification badge that displays the count of unread notifications.
+              - position-absolute: This class positions the badge absolutely within the button.
+                - top-0 start-100: These classes position the badge at the top-right corner of the button.
+                - translate-middle: This class centers the badge on the corner.
+                - badge: This class styles the span as a badge.
+                - rounded-pill: This class gives the badge a pill-shaped appearance.
+                - bg-danger: This class sets the background color of the badge to a danger (red) color.
+              - 3: This is the number of unread notifications displayed inside the badge.
+                - <span class="visually-hidden">unread notifications</span>: This span provides additional context for screen readers, indicating that the number represents unread notifications.
+            -->
+
+          
           <!-- 
             USER DROPDOWN MENU
             ==================
