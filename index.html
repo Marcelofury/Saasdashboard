@@ -775,14 +775,221 @@
       </section>
 
       <!-- 
-        ===================
-        CHARTS & ACTIVITY
-        ===================
-        Will be built in Step 6
-        Two-column layout: Chart + Recent Activity
+        =====================================================
+        CHARTS & ACTIVITY SECTION
+        =====================================================
+        
+        LAYOUT:
+        - Left (8 columns): Revenue Chart placeholder
+        - Right (4 columns): Recent Activity Feed
+        
+        RESPONSIVE:
+        - Desktop: Side by side (66% / 33%)
+        - Mobile: Stacked vertically
+        
+        WHY THIS RATIO?
+        - Charts need more space to be readable
+        - Activity feed is compact list
+        - Common in dashboards: Stripe, Vercel, Linear
+        ===================================================== 
       -->
       <section class="mb-4">
-        <!-- Charts and activity feed will go here -->
+        <div class="row g-4">
+          
+          <!-- 
+            LEFT COLUMN: REVENUE CHART
+            ==========================
+            col-lg-8: 8 out of 12 columns on large screens (66.67%)
+          -->
+          <div class="col-12 col-lg-8">
+            <div class="card chart-card border-0 h-100">
+              <div class="card-header bg-white border-0 pb-0">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h5 class="card-title mb-1">Revenue Overview</h5>
+                    <p class="text-muted small mb-0">Monthly revenue for the last 6 months</p>
+                  </div>
+                  <!-- Time Period Selector (would be functional with JS) -->
+                  <div class="btn-group btn-group-sm" role="group" aria-label="Time period">
+                    <button type="button" class="btn btn-outline-secondary">7D</button>
+                    <button type="button" class="btn btn-outline-secondary active">30D</button>
+                    <button type="button" class="btn btn-outline-secondary">90D</button>
+                    <button type="button" class="btn btn-outline-secondary">1Y</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card-body">
+                <!-- 
+                  CHART PLACEHOLDER
+                  =================
+                  In a real app, this would contain:
+                  - Chart.js canvas
+                  - Recharts component (React)
+                  - D3.js visualization
+                  - ApexCharts
+                  
+                  For now: Styled placeholder with grid lines
+                -->
+                <div class="chart-placeholder">
+                  <div class="chart-grid">
+                    <!-- Vertical grid lines -->
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                  </div>
+                  
+                  <!-- Chart data visualization (SVG-like styling) -->
+                  <div class="chart-content">
+                    <div class="chart-bar" style="height: 45%;"></div>
+                    <div class="chart-bar" style="height: 60%;"></div>
+                    <div class="chart-bar" style="height: 55%;"></div>
+                    <div class="chart-bar" style="height: 75%;"></div>
+                    <div class="chart-bar" style="height: 70%;"></div>
+                    <div class="chart-bar" style="height: 85%;"></div>
+                  </div>
+                  
+                  <!-- Labels -->
+                  <div class="chart-labels">
+                    <span class="chart-label">Jan</span>
+                    <span class="chart-label">Feb</span>
+                    <span class="chart-label">Mar</span>
+                    <span class="chart-label">Apr</span>
+                    <span class="chart-label">May</span>
+                    <span class="chart-label">Jun</span>
+                  </div>
+                  
+                  <!-- Overlay text for clarity -->
+                  <div class="chart-overlay-text">
+                    <i class="bi bi-bar-chart-fill text-muted mb-2" style="font-size: 3rem;"></i>
+                    <p class="text-muted mb-0">Chart visualization placeholder</p>
+                    <small class="text-muted">Connect Chart.js or similar library</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 
+            RIGHT COLUMN: RECENT ACTIVITY FEED
+            ===================================
+            col-lg-4: 4 out of 12 columns on large screens (33.33%)
+          -->
+          <div class="col-12 col-lg-4">
+            <div class="card activity-card border-0 h-100">
+              <div class="card-header bg-white border-0 pb-0">
+                <h5 class="card-title mb-1">Recent Activity</h5>
+                <p class="text-muted small mb-0">Latest updates from your team</p>
+              </div>
+              
+              <div class="card-body">
+                <!-- 
+                  ACTIVITY TIMELINE
+                  =================
+                  Visual timeline with dots and connecting line
+                  Common pattern in: GitHub, Linear, Notion
+                -->
+                <div class="activity-timeline">
+                  
+                  <!-- Activity Item #1 -->
+                  <div class="activity-item">
+                    <div class="activity-dot bg-success"></div>
+                    <div class="activity-content">
+                      <div class="d-flex justify-content-between align-items-start mb-1">
+                        <h6 class="activity-title mb-0">New user registered</h6>
+                        <small class="text-muted">2m ago</small>
+                      </div>
+                      <p class="activity-description mb-0">
+                        Sarah Johnson signed up for the Pro plan
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <!-- Activity Item #2 -->
+                  <div class="activity-item">
+                    <div class="activity-dot bg-primary"></div>
+                    <div class="activity-content">
+                      <div class="d-flex justify-content-between align-items-start mb-1">
+                        <h6 class="activity-title mb-0">Payment received</h6>
+                        <small class="text-muted">15m ago</small>
+                      </div>
+                      <p class="activity-description mb-0">
+                        Invoice #3847 paid - $2,499.00
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <!-- Activity Item #3 -->
+                  <div class="activity-item">
+                    <div class="activity-dot bg-warning"></div>
+                    <div class="activity-content">
+                      <div class="d-flex justify-content-between align-items-start mb-1">
+                        <h6 class="activity-title mb-0">Server deployment</h6>
+                        <small class="text-muted">1h ago</small>
+                      </div>
+                      <p class="activity-description mb-0">
+                        Production build deployed to main branch
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <!-- Activity Item #4 -->
+                  <div class="activity-item">
+                    <div class="activity-dot bg-info"></div>
+                    <div class="activity-content">
+                      <div class="d-flex justify-content-between align-items-start mb-1">
+                        <h6 class="activity-title mb-0">New feature request</h6>
+                        <small class="text-muted">3h ago</small>
+                      </div>
+                      <p class="activity-description mb-0">
+                        User requested dark mode support
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <!-- Activity Item #5 -->
+                  <div class="activity-item">
+                    <div class="activity-dot bg-secondary"></div>
+                    <div class="activity-content">
+                      <div class="d-flex justify-content-between align-items-start mb-1">
+                        <h6 class="activity-title mb-0">Team member added</h6>
+                        <small class="text-muted">5h ago</small>
+                      </div>
+                      <p class="activity-description mb-0">
+                        Michael Chen joined as Developer
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <!-- Activity Item #6 -->
+                  <div class="activity-item">
+                    <div class="activity-dot bg-danger"></div>
+                    <div class="activity-content">
+                      <div class="d-flex justify-content-between align-items-start mb-1">
+                        <h6 class="activity-title mb-0">API rate limit warning</h6>
+                        <small class="text-muted">8h ago</small>
+                      </div>
+                      <p class="activity-description mb-0">
+                        Approaching 80% of API quota
+                      </p>
+                    </div>
+                  </div>
+                  
+                </div>
+                
+                <!-- View All Link -->
+                <div class="text-center mt-3 pt-3 border-top">
+                  <a href="#" class="btn btn-link text-decoration-none">
+                    View all activity <i class="bi bi-arrow-right ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
       </section>
 
       <!-- 
